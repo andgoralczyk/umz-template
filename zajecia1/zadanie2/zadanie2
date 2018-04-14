@@ -1,72 +1,47 @@
 
-
-In [1]: import pandas as pd
-
-In [2]: import seaborn as sns
-
-In [3]: import os
-
-In [4]: import matplotlib.pyplot as plt
+#!/usr/bin/python3
+import pandas as pd
+import seaborn as sns
+import os
+import matplotlib.pyplot as plt
+from  sklearn import linear_model 
 
 
+p= pd.read_csv('/home/students/s407545/Desktop/cos/umz-template/zajecia1/zadanie2/train/train.tsv', sep = '\t', names= ['price', 'isNew', 'rooms', 'floor', 'location', 'sqrmeters'])
 
-In [7]: from  sklearn import linear_model 
+reg=linear_model.LinearRegression()
 
-In [8]: 
+p.shape
+p.price
 
-In [8]: p= pd.read_csv('/home/students/s407545/Desktop/cos/umz-template/zajecia1
-   ...: /zadanie2/train/train.tsv', sep = '\t', names= ['price', 'isNew', 'rooms
-   ...: ', 'floor', 'location', 'sqrmeters'])
+reg.fit(pd.DataFrame(p, columns=['sqrmeters']), p['price'])
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
 
-In [9]: reg=linear_model.LinearRegression()
+x=p['sqrmeters']
+x=x.values.reshape(-1,1)
 
-In [10]: p.shape
+os.chdir('/home/students/s407545/Desktop/cos/umz-template/zajecia1/zadanie2/dev-0')
 
+r=pd.read_csv('in.tsv', sep='\t', names=['isNew', 'rooms', 'floor', 'location', 'sqrmeters'])
 
-In [11]: p.price
+x=r['sqrmeters']
 
+x=x.values.reshape(-1,1)
 
-In [12]: reg.fit(pd.DataFrame(p, columns=['sqrmeters']), p['price'])
-Out[12]: LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+y=reg.predict(x)
 
+pd.DataFrame(y).to_csv('out.tsv', sep='\t', index= False, header=False)
+    
+s=pd.read_csv('/home/students/s407545/Desktop/cos/umz-template/zajecia1/zadanie2/test-A/in.tsv', sep='\t', names=['isNew',' rooms', 'floor', 'location', 'sqrmeters'])
+x1=s['sqrmeters']
+x1=x1.values.reshape(-1,1)
+y1=reg.predict(x1)
 
-
-In [15]: x=p['sqrmeters']
-
-In [16]: x=x.values.reshape(-1,1)
-
-
-
-In [18]: os.chdir('/home/students/s407545/Desktop/cos/umz-template/zajecia1/zada
-    ...: nie2/dev-0')
-
-In [19]: r=pd.read_csv('in.tsv', sep='\t', names=['isNew', 'rooms', 'floor', 'lo
-    ...: cation', 'sqrmeters'])
-
-In [20]: x=r['sqrmeters']
-
-In [21]: x=x.values.reshape(-1,1)
-
-In [22]: y=reg.predict(x)
-
-In [23]: pd.DataFrame(y).to_csv('out.tsv', sep='\t', index= False, header=False)
-    ...: 
-
-In [24]: s=pd.read_csv('/home/students/s407545/Desktop/cos/umz-template/zajecia1
-    ...: /zadanie2/test-A/in.tsv', sep='\t', names=['isNew',' rooms', 'floor', '
-    ...: location', 'sqrmeters'])
-
-In [25]: x1=s['sqrmeters']
-
-In [26]: x1=x1.values.reshape(-1,1)
-
-In [27]: y1=reg.predict(x1)
-
-In [28]: pd.DataFrame(y1).to_csv('out.tsv', sep='\t', index=False, header= False
-    ...: )
+ pd.DataFrame(y1).to_csv('out.tsv', sep='\t', index=False, header= False)
+ 
 
 
-In [34]: sns.regplot(y=p['price'], x=p['sqrmeters']); plt.show()
+sns.regplot(y=p['price'], x=p['sqrmeters']); plt.show()
 
-In [35]: 
+
 
