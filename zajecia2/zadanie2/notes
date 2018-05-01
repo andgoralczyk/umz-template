@@ -1,0 +1,22 @@
+Zbior treningowy
+Rozkład próby %: 0.6932270916334662
+Dokładność algorytmu zero rule na zbiorze treningowym:0.3067729083665338
+True Positives:  174
+True Negatives:  21
+False Positives:  56
+True Negatives:  21
+Accurancy:  0.7768924302788844
+Specifcity:  0.2727272727272727
+Sensitivity:  1.0
+----------------------------------------------------------------------------------------------------
+Zbior deweloperski
+Rozkład próby %: 0.52
+Dokładność algorytmu zero rule na zbiorze deweloperskim:0.48
+True Positives:  25
+True Negatives:  8
+False Positives:  16
+True Negatives:  8
+Accurancy:  0.66
+Specifcity:  0.3333333333333333
+Sensitivity:  0.9615384615384616
+
