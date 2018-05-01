@@ -118,5 +118,4 @@ print('-'*100)
 print('plotting...')
 
 sns.regplot(x=rdev.CO2, y=rdev_expected.y, logistic=True, y_jitter=.1)
-plt.savefig("wykres")
-
+plt.show()
