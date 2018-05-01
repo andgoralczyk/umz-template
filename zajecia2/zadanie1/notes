@@ -1,0 +1,29 @@
+training set
+Occupancy % :0.2123296082524868
+zero rule model accuracy on training set is 0.7876703917475132
+lr model on CO2 only accuracy on training data: 0.9010192803635024
+Accurancy:  0.9883335380081051
+Specifcity:  0.9859681945743686
+Sensitivity:  0.9971081550028918
+Matrix: 
+True Positives:  1724
+True Negatives:  6324
+False Positives:  90
+True Negatives:  6324
+[[1724   90]
+ [   5 6324]]
+----------------------------------------------------------------------------------------------------
+development set
+zero rule model accurancy on development set is 0.6352720450281426
+accuracy on dev data (full model):0.9782363977485928
+Accurancy=  0.9782363977485928
+Specifcity= 0.96751329001772
+Sensitivity= 0.9969135802469136
+Matrix: 
+True Positives:  969
+True Negatives:  1638
+False Positives:  55
+True Negatives:  1638
+[[ 969   55]
+ [   3 1638]]
+
